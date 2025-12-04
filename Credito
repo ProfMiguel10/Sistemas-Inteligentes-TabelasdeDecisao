@@ -1,0 +1,17 @@
+package tabeladecisao;
+
+public class Credito {
+    public static String avaliar(int score, double renda, boolean emergencial) {
+
+        if (emergencial && score >= 800) {
+            return "Prioridade máxima";
+        } else if (score >= 750 && renda >= 5000) {
+            return "Aprovar crédito total";
+        } else if (score >= 650 && renda >= 3000) {
+            return "Aprovar crédito parcial";
+        } else if (score < 650 || renda < 2000) {
+            return "Rejeitar solicitação";
+        }
+        return "Indeterminado";
+    }
+}
