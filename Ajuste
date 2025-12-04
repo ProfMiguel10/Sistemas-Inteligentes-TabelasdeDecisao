@@ -1,0 +1,39 @@
+package tabeladecisao;
+import java.util.Scanner;
+public class TabelaDecisao {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("O cliente é assinante? (s/n): ");
+		boolean assinante = sc.nextLine().trim().equalsIgnoreCase("s");
+		System.out.println("Digite o valor do pedido: ");
+		double valor = sc.nextDouble();
+		sc.nextLine();
+		System.out.println("O pedido é urgente? (s/n): ");
+		boolean urgente = sc.nextLine().trim().equalsIgnoreCase("s");
+		double resultado = calcularAjuste(assinante, valor, urgente);
+		System.out.printf("Resultado da Tabela de Decisão: %.2f%% %s\n", Math.abs(resultado),
+				resultado >= 0 ? "de desconto" : "de acréscimo");
+		sc.close();
+	}
+	// ------ IMPLEMENTAÇÃO DAS REGRAS DA TABELA DE DECISÃO ------
+	public static double calcularAjuste(boolean assinante, double valor, boolean urgente) {
+		// Caso E - Regra prioritária
+		if (urgente) {
+			return -8.0; // Acréscimo
+			}
+			// Caso A
+			if (assinante && valor > 200) {
+				return 15.0;
+			}
+			// Caso B
+			if (assinante && valor <= 200) {
+				return 5.0;
+			}
+			// Caso C
+			if (!assinante && valor > 200) {
+				return 10.0;
+			}
+			// Caso D
+			return 0.0;
+		}
+}
