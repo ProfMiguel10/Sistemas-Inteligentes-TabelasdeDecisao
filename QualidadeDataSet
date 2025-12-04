@@ -1,0 +1,17 @@
+package tabeladecisao;
+
+public class Qualidade {
+
+    public static String avaliar(double nulos, String coerencia) {
+        if (nulos == 0 && coerencia.equals("alta")) {
+            return "Dataset Perfeito (selo ouro)";
+        } else if (nulos < 5 && coerencia.equals("alta")) {
+            return "Dataset Excelente";
+        } else if (nulos <= 15 && coerencia.equals("media")) {
+            return "Dataset Mediano";
+        } else if (nulos > 15 || coerencia.equals("baixa")) {
+            return "Dataset Ruim";
+        }
+        return "Indefinido";
+    }
+}
