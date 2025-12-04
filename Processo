@@ -1,0 +1,15 @@
+package tabeladecisao;
+public class Processo {
+	public static String classificar(boolean riscoVida, boolean prazoProximo, boolean docFaltante) {
+		if (riscoVida && prazoProximo) {
+			return "Prioridade absoluta";
+		} else if (riscoVida) {
+			return "Urgência Máxima";
+		} else if (prazoProximo) {
+			return "Urgência Alta";
+		} else if (docFaltante) {
+			return "Suspender até complemento";
+		}
+		return "Tramitação Normal";
+	}
+}
