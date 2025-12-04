@@ -1,0 +1,17 @@
+package tabeladecisao;
+public class Marketing {
+    public static String mensagem(String tipo, int diasUltimaCompra) {
+        if (tipo.equals("novo")) {
+            return "Enviar boas-vindas";
+        } else if (tipo.equals("recorrente") && diasUltimaCompra < 30) {
+            return "Oferta VIP";
+        } else if (tipo.equals("recorrente") && diasUltimaCompra >= 30) {
+            return "Reengajamento";
+        } else if (tipo.equals("inativo") && diasUltimaCompra > 180) {
+            return "Campanha forte de recuperação";
+        } else if (tipo.equals("inativo") && diasUltimaCompra > 90) {
+            return "Cupom de retorno";
+        }
+        return "Indefinido";
+    }
+}
