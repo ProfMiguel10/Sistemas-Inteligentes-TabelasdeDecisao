@@ -1,0 +1,25 @@
+package faculdade;
+
+public class Principal {
+
+    public static String decidirAtendimento(String usuario, String solicitacao) {
+
+        if (usuario.equals("Aluno") && solicitacao.equals("Urgente")) {
+            return "Atender imediatamente";
+        }
+        if (usuario.equals("Aluno") && solicitacao.equals("Comum")) {
+            return "Atender em até 24h";
+        }
+        if (usuario.equals("Professor")) {
+            return "Prioridade média";
+        }
+        if (usuario.equals("Visitante")) {
+            return "Encaminhar à recepção";
+        }
+        return "Caso não encontrado";
+    }
+    public static void main(String[] args) {
+        System.out.println(decidirAtendimento("Aluno", "Urgente"));
+        System.out.println(decidirAtendimento("Visitante", "Comum"));
+    }
+}
